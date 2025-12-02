@@ -9,6 +9,7 @@ https://forms.gle/4jWkKHn2X7HufD7j9
 
 ## Quiz Links
 
+Day 1: https://forms.gle/3ejmgSHrADSN4roo8
 
 ## Git Repository Links
 
