@@ -13,6 +13,9 @@ Day 1: https://forms.gle/3ejmgSHrADSN4roo8
 
 ## Git Repository Links
 
+Training: https://github.com/aniljos/react-native-dec-2025
+API: https://github.com/aniljos/cric-roaster
+
 ## Assessment Links
 
 ## List of Projects
