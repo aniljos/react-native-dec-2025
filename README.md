@@ -10,11 +10,14 @@ https://forms.gle/4jWkKHn2X7HufD7j9
 ## Quiz Links
 
 Day 1: https://forms.gle/3ejmgSHrADSN4roo8
+Day 2  https://forms.gle/pdAsTwG4YTjz7cCZA
 
 ## Git Repository Links
 
 Training: https://github.com/aniljos/react-native-dec-2025
 API: https://github.com/aniljos/cric-roaster
+
+Heath Tracker: https://github.com/aniljos/PersonalHeathTracker
 
 ## Assessment Links
 
