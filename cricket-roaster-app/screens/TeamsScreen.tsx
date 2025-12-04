@@ -36,8 +36,8 @@ const TeamsScreen = () => {
             setLoading(true);
             const url = baseUrl + "/teams";
             const response = await axios.get(url);
-            await new Promise(resolve => setTimeout(resolve, 5000)); // Artificial Delay
-            console.log(response);
+          //  await new Promise(resolve => setTimeout(resolve, 5000)); // Artificial Delay
+           // console.log(response);
             setTeams(response.data.teams);
             setLoading(false);
 
@@ -48,12 +48,16 @@ const TeamsScreen = () => {
         }
     }
 
-    function navigateToPlayersInfo() {
-        navigation.navigate('playersInfo');
+    function navigateToPlayersInfo(team: any) {
+        navigation.navigate('playersInfo', {
+            screen: "teamwisePlayers",
+            params: team
+        } as any);
     }
 
-    function navigateToDetails() {
-        navigation.navigate('teamdetails');
+    function navigateToDetails(team: any) {
+        navigation.navigate('teamdetails', team);
+        //navigation.navigate('teamdetails', {name: "abc"});
     }
 
     async function onRefresh() {
@@ -77,8 +81,8 @@ const TeamsScreen = () => {
 
                 {teams.map((team: any) => {
                     return (
-                        <Pressable key={team.shortName} onPress={navigateToPlayersInfo}
-                            onLongPress={navigateToDetails}
+                        <Pressable key={team.shortName} onPress={() => navigateToPlayersInfo(team)}
+                            onLongPress={() => navigateToDetails(team)}
                             style={({ pressed }) => pressed ? styles.itemPressed : styles.item}>
 
                             {/* <View style={styles.item}> */}

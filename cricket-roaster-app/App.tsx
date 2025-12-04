@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Alert, Button, StyleSheet, Text, View } from 'react-native';
 import {createStaticNavigation} from "@react-navigation/native";
 import {createNativeStackNavigator} from '@react-navigation/native-stack' 
 import TeamsScreen from './screens/TeamsScreen';
@@ -13,7 +13,7 @@ import {Ionicons} from '@expo/vector-icons';
 
 
 const PlayersInfoTab = createBottomTabNavigator({
-  initialRouteName: "teamwisePlayers",
+  initialRouteName: "allPlayers",
   screenOptions:{
     headerShown: false
   },
@@ -58,8 +58,15 @@ const RootStack = createNativeStackNavigator({
     teamdetails: TeamDetailsScreen,
     playersInfo: {
       screen: PlayersInfoTab,
-      options: {
-        
+      // options: {
+      //   title: "Players",
+      //   headerRight: () => <Button title='Add Player' onPress={() => Alert.alert("Add a player")}/>
+      // }
+      options: ({navigation}) =>{
+        return{
+          title: "Players",
+          headerRight: () => <Button title='Add Player' onPress={() => navigation.navigate('newPlayer')}/>
+        }
       }
     },
     newPlayer: AddPlayerScreen
