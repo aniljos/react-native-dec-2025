@@ -69,7 +69,12 @@ const RootStack = createNativeStackNavigator({
         }
       }
     },
-    newPlayer: AddPlayerScreen
+    newPlayer: {
+      screen: AddPlayerScreen,
+      options: {
+        title: ""
+      }
+    }
   }
 })
 

@@ -9,14 +9,7 @@ import {
   View,
 } from 'react-native';
 import { baseUrl } from '../config/env';
-
-type Player = {
-  playerName: string;
-  role?: string;
-  teamName?: string;
-  uniquePlayerId?: string;
-  image?: string;
-};
+import { Player } from '../models/Player';
 
 const AllPlayersScreen = () => {
   const [players, setPlayers] = useState<Player[]>([]);

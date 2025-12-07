@@ -8,18 +8,7 @@ import {
 } from 'react-native';
 import { baseUrl } from '../config/env';
 import axios from 'axios';
-
-type Player = {
-  playerName: string;
-  role?: string;
-  teamName: string;
-  uniquePlayerId: string;
-};
-
-type TeamSection = {
-  teamName: string;
-  members: Player[];
-};
+import { Player, TeamSection } from '../models/Player';
 
 const TeamPlayers = () => {
   const [data, setData] = useState<TeamSection[]>([]);

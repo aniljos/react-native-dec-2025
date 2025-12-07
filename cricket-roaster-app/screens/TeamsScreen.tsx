@@ -68,8 +68,9 @@ const TeamsScreen = () => {
 
     return (
         <View style={styles.container}>
-            <View style={{ margin: 10, padding: 20, borderWidth: 2, borderColor: '#31836bff' }}>
-                <Text style={styles.title}>Teams Screen</Text>
+            <View style={styles.header}>
+                <Text style={styles.title}>Teams</Text>
+                <Text style={styles.helper}>Press a team to view players • Long press for team details</Text>
             </View>
 
             <ScrollView style={{}} 
@@ -81,15 +82,21 @@ const TeamsScreen = () => {
 
                 {teams.map((team: any) => {
                     return (
-                        <Pressable key={team.shortName} onPress={() => navigateToPlayersInfo(team)}
+                        <Pressable
+                            key={team.shortName}
+                            onPress={() => navigateToPlayersInfo(team)}
                             onLongPress={() => navigateToDetails(team)}
                             style={({ pressed }) => pressed ? styles.itemPressed : styles.item}>
 
-                            {/* <View style={styles.item}> */}
-                            <Image source={{ uri: `${baseUrl}/${team.logo}` }}
-                                style={styles.image} />
-                            <Text style={styles.itemText}>{team.name}</Text>
-                            {/* </View> */}
+                            <View style={styles.row}>
+                                <Image source={{ uri: `${baseUrl}/${team.logo}` }} style={styles.image} />
+                                <View style={styles.meta}>
+                                    <Text style={styles.teamName}>{team.name}</Text>
+                                    <Text style={styles.metaText}>Short Name: {team.shortName}</Text>
+                                    <Text style={styles.metaText}>Captain: {team.captain}</Text>
+                                    <Text style={styles.metaText}>Championships: {team.championshipsWon ?? 'N/A'}</Text>
+                                </View>
+                            </View>
 
                         </Pressable>
                     )
@@ -107,45 +114,66 @@ const styles = StyleSheet.create({
         //alignItems: 'center',
         //justifyContent: 'center',
     },
+    header: {
+        margin: 10,
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+    },
     title: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 26,
+        fontWeight: '800',
+        color: '#0f172a',
+        letterSpacing: 0.5,
+    },
+    helper: {
+        marginTop: 4,
+        color: '#0ea5e9',
+        fontSize: 14,
     },
     item: {
         margin: 8,
-        padding: 30,
-        backgroundColor: '#5a8687ff',
-        shadowColor: '#192d2dff',
+        padding: 16,
+        backgroundColor: '#ffffff',
+        shadowColor: '#0f172a',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        borderRadius: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-
+        shadowOpacity: 0.08,
+        shadowRadius: 4,
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: '#e2e8f0',
     },
     itemPressed: {
         margin: 8,
-        padding: 30,
-        backgroundColor: '#5a8687ff',
-        // shadowColor: '#192d2dff',
-        // shadowOffset: { width: 0, height: 2 },
-        // shadowOpacity: 0.8,
-        // shadowRadius: 2,
-        borderRadius: 10,
-        justifyContent: 'center',
+        padding: 16,
+        backgroundColor: '#f8fafc',
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: '#e2e8f0',
+        opacity: 0.9,
+    },
+    row: {
+        flexDirection: 'row',
         alignItems: 'center',
-        opacity: 0.8
-
+        gap: 12,
     },
     image: {
-        height: 120,
-        width: 120,
-        borderRadius: 60,
-        marginBottom: 10
+        height: 72,
+        width: 72,
+        borderRadius: 36,
+        backgroundColor: '#e2e8f0',
     },
-    itemText: {
+    meta: {
+        flex: 1,
+    },
+    teamName: {
         fontSize: 18,
-        color: '#2516abff',
-    }
+        fontWeight: '700',
+        color: '#0f172a',
+        marginBottom: 4,
+    },
+    metaText: {
+        fontSize: 14,
+        color: '#475569',
+        marginTop: 2,
+    },
 })
