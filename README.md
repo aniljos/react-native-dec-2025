@@ -25,3 +25,12 @@ https://forms.gle/4jWkKHn2X7HufD7j9
 
 ## List of Projects
 
+## Application Details
+- **cricket-roaster-app**: Expo-managed app (scripts use `expo start`) wired to the roster API. Demonstrates React Navigation stacks/tabs, remote data fetching with Axios, pull-to-refresh team lists, grouped player views, and a validated player-creation form with image uploads via `expo-image-picker` that POSTs new roster entries.
+- **PersonalHealthTracker**: Created with `create-expo-app` (see `PersonalHeathTracker/README.md`) using Expo Router. Features SQLite persistence for daily health entries (date, calories, sleep, workout), AsyncStorage-backed step logging, cross-platform date pickers, and safe-area aware screens.
+- **ExpoRouterApp**: Created with `create-expo-app` (see `ExpoRouterApp/README.md`) showcasing Expo Router + Redux. Includes a themable home hub, auth flow with protected product listing/detail pages calling the secure product API, plus demos for deep linking actions, sharing, and device dimension utilities.
+- **RNBareApp**: Bootstrapped with the React Native CLI (per `RNBareApp/README.md`). Demonstrates a bare workflow app invoking a custom native module (`NativeSayHello`) from JavaScript, with safe-area handling and basic text input/alerts.
+
+## API Projects
+- **REST-API-Mock**: Express mock server exposing `/login` + `/refreshToken`, public and JWT-protected `/products` + `/secure_products` (CRUD), `/customers` + `/secure_customers` (CRUD), and `/todoItems` for todo collection writes/reads.
+- **api/cric-roaster**: Cricket roster API serving `/health`, `/teams`, `/players/all`, `/players/grouped`, `/players?teamName=...`, `/players/:uniquePlayerId`, and `POST /players` (accepts base64/file data for player images and persists to JSON + public assets).
